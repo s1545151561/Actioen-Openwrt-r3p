@@ -14,9 +14,6 @@ rm -rf package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 
 # 添加第三方软件包
-git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
-git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
-git clone https://github.com/kang-mk/luci-app-smartinfo package/luci-app-smartinfo
 git clone https://github.com/vernesong/OpenClash/tree/master/luci-app-openclash package/luci-app-openclash
 
 
@@ -113,25 +110,6 @@ CONFIG_PACKAGE_luci-app-adguardhome=y
 # CONFIG_PACKAGE_luci-app-smartinfo=y
 EOF
 
-# ShadowsocksR插件:
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-ssr-plus=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
-EOF
-
-#解锁网易云灰色歌曲
-cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-unblockmusic=y
-CONFIG_UnblockNeteaseMusic_Go=y
-EOF
-
 #证书自签ACME certs
 cat >> .config <<EOF
 CONFIG_PACKAGE_luci-app-acme=y
@@ -140,28 +118,14 @@ EOF
 
 # 常用LuCI插件选择:
 cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
-# CONFIG_PACKAGE_luci-app-transmission is not set
-CONFIG_PACKAGE_luci-app-qbittorrent=y
 # CONFIG_PACKAGE_luci-app-xlnetacc is not set
-CONFIG_PACKAGE_luci-app-zerotier=y
-CONFIG_PACKAGE_luci-app-v2ray-server=y
 # CONFIG_PACKAGE_luci-app-pptp-server is not set
 CONFIG_PACKAGE_luci-app-ipsec-vpnd=y
-CONFIG_PACKAGE_luci-app-openvpn=y
-CONFIG_PACKAGE_luci-app-openvpn-server=y
-CONFIG_PACKAGE_luci-app-adbyby-plus=y
-CONFIG_PACKAGE_luci-app-softethervpn is not set
-CONFIG_PACKAGE_luci-app-ssr-libev-server=y
 CONFIG_PACKAGE_luci-app-haproxy-tcp=y
 CONFIG_PACKAGE_luci-app-webadmin=y
-CONFIG_PACKAGE_luci-app-frpc=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-wireguard=y
 CONFIG_PACKAGE_luci-app-wrtbwmon=y
-CONFIG_PACKAGE_luci-app-aria2=y
-CONFIG_PACKAGE_luci-app-hd-idle=y
-CONFIG_PACKAGE_luci-app-airplay2=y
 CONFIG_PACKAGE_luci-app-cifs-mount=y
 CONFIG_PACKAGE_luci-app-music-remote-center=y
 CONFIG_PACKAGE_luci-app-samba4=y
